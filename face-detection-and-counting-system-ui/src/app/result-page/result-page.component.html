@@ -1,0 +1,25 @@
+<div class="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+     [style.background-image]="'url(../../assets/images/facebackground.jpeg)'">
+  <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+  <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+    <div class="text-center">
+      <h2 class="mt-5 text-3xl font-bold text-gray-900">Analysis Result</h2>
+      <p class="mt-2 text-sm text-gray-400">
+        Here's what we found in your image
+      </p>
+    </div>
+    <div class="mt-8">
+      <div class="animated-gradient rounded-lg shadow-lg p-6 text-white result-box">
+        <p class="text-3xl font-bold">{{ result }} person were detected in your image</p>
+      </div>
+      <div class="mt-8 flex justify-center">
+        <button
+          (click)="goBack()"
+          class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Upload Another Image
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

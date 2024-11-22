@@ -1,0 +1,49 @@
+<div class="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+     [style.background-image]="'url(../../assets/images/facebackground.jpeg)'">
+  <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+  <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+    <div class="text-center">
+      <h2 class="mt-5 text-3xl font-bold text-gray-900">Upload your Photo!</h2>
+      <p class="mt-2 text-sm text-gray-400">Test how many people are in your image</p>
+    </div>
+    <form class="mt-8 space-y-3">
+      <div class="grid grid-cols-1 space-y-2">
+        <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Photo</label>
+        <div class="flex items-center justify-center w-full">
+          <label
+            class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center cursor-pointer"
+            [ngClass]="{'border-blue-500': isDragging}"
+            (dragenter)="onDragEnter($event)"
+            (dragleave)="onDragLeave($event)"
+            (dragover)="onDragOver($event)"
+            (drop)="onDrop($event)">
+            <div class="h-full w-full text-center flex flex-col items-center justify-center" *ngIf="!selectedFile">
+              <div class="flex justify-center items-center w-full">
+                <img class="h-36 w-40 object-contain" src="../../assets/images/2914527.jpg" alt="freepik image" />
+              </div>
+              <p class="pointer-none text-gray-500 mt-4">
+                <span class="text-sm">Drag and drop</span> files here <br /> or
+                <a href="javascript:void(0)" (click)="fileInput.click()" class="text-blue-600 hover:underline">select a file</a>
+                from your computer
+              </p>
+            </div>
+            <div class="h-full w-full flex items-center justify-center" *ngIf="selectedFile">
+              <img [src]="previewUrl" class="h-full object-contain" />
+            </div>
+            <input type="file" class="hidden" (change)="onFileSelected($event)" #fileInput accept="image/*" />
+          </label>
+        </div>
+      </div>
+      <p class="text-sm text-gray-300">
+        <span>File type: jpg, png, jpeg of images</span>
+      </p>
+      <div>
+        <button type="submit" (click)="onSubmit($event)"
+                class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+                >
+          Check
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
